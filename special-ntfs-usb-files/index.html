@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Special ntfs usb files - Xbox One Research Wiki</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-1.10.2.min.js" defer></script>
+    <script src="../js/bootstrap-3.3.7.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Xbox One Research Wiki</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../Home/" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../faq/" class="nav-link">FAQ</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#special-ntfs-usb-files" class="nav-link">Special NTFS USB files</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#what-is-this-about" class="nav-link">What is this about ?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#list-of-files-folders" class="nav-link">List of files / folders</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<!-- TITLE: Special Ntfs Usb Files -->
+
+<!-- SUBTITLE: A quick summary of Special Ntfs Usb Files -->
+
+<h1 id="special-ntfs-usb-files">Special NTFS USB files</h1>
+<h2 id="what-is-this-about">What is this about ?</h2>
+<p>Following special folders / files that can be created on a NTFS USB
+flash drive to trigger commands on console boot.</p>
+<h2 id="list-of-files-folders">List of files / folders</h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Type</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$Diagnosis</td>
+<td>Folder</td>
+<td>The command <em>$DumpSystemOS</em> will write <em>SystemOS-full.dmpx</em> here.</td>
+</tr>
+<tr>
+<td>$NoSurface</td>
+<td>Folder</td>
+<td>Mount drive in HostOS instead of SystemOS.</td>
+</tr>
+<tr>
+<td>$DumpSystemOS</td>
+<td>Folder</td>
+<td>SystemOS Memory Dump. The console will ding when the dump is finished. (Host will delete $DumpSystemOS and dump SystemOS's memory into the $Diagnosis.)</td>
+</tr>
+<tr>
+<td>$DumpHostOS</td>
+<td>Folder</td>
+<td>HostOS Memory Dump</td>
+</tr>
+<tr>
+<td>$Diagnosis\debug.bin</td>
+<td>File</td>
+<td>Set debug settings from <em>debug.bin</em></td>
+</tr>
+<tr>
+<td>$SystemUpdate\consoles.txt</td>
+<td>File</td>
+<td>Put an empty file consoles.txt on the flashdrive. Console will write its current systemupdate build version to the file on boot.</td>
+</tr>
+<tr>
+<td>$ConsoleRegion0</td>
+<td>File</td>
+<td>Only available on Chinese Xbox One. Put an empty file $ConsoleRegion0 on the flashdrive to Disable region lock.</td>
+</tr>
+<tr>
+<td>$ConsoleRegion1</td>
+<td>File</td>
+<td>Only available on Chinese Xbox One. Put an empty file $ConsoleRegion1 on the flashdrive to Enable region lock.</td>
+</tr>
+<tr>
+<td>MSXB_Kiosk</td>
+<td>File</td>
+<td>Put a special Kiosk XVD on the flashdrive, after booting the console will be locked in Kiosk mode. To exit, power off console and remove the flash drive.</td>
+</tr>
+</tbody>
+</table>
+<p>Note: 
++ The SystemOS-full.dmpx file is encrypted and requires a retail key
+to decrypt.
++ Using <em>$ConsoleRegion0</em> &amp; <em>$ConsoleRegion1</em> will affect the ability to read Xbox China game discs, but won't affect already installed digital games.
++ Non-Chinese Xbox One units cannot be region locked and read Xbox China discs / access China region Xbox Live by <em>$ConsoleRegion1</em>.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

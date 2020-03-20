@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Xbox operating system - Xbox One Research Wiki</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-1.10.2.min.js" defer></script>
+    <script src="../js/bootstrap-3.3.7.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Xbox One Research Wiki</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../Home/" class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../faq/" class="nav-link">FAQ</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#xbox-operating-system" class="nav-link">Xbox Operating System</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#host" class="nav-link">Host</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#system" class="nav-link">System</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#gameera" class="nav-link">Game/Era</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#gamecore" class="nav-link">GameCore</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<!-- TITLE: Xbox Operating System -->
+
+<!-- SUBTITLE: Structure of the Xbox Operating System -->
+
+<h1 id="xbox-operating-system">Xbox Operating System</h1>
+<h2 id="host">Host</h2>
+<p>The primary operating system known as the Host OS is responsible for
+managing the virtual machines, providing drivers for hardware components
+and more. It was based on a variation of Windows 8 LNM, a stripped down
+operating system for bare minimum requirements, with many customisations
+that implement Microsoft's Xbox Virtual Machine stack.</p>
+<h3 id="host-volumesdrives">Host Volumes/Drives</h3>
+<table>
+<thead>
+<tr>
+<th>Partition</th>
+<th>Mount Point</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Internal Flash</td>
+<td>F:\</td>
+<td>The flash does not contain a normal file system, it is using the <a href="xbox-boot-file-system">Xbox boot filesystem</a> and is exposed as a normal NTFS partition via a special driver.</td>
+</tr>
+<tr>
+<td>host.xvd</td>
+<td>C:\</td>
+<td>Host's Windows Installation.</td>
+</tr>
+<tr>
+<td>User Content</td>
+<td>E:\</td>
+<td>Direct access to the HDD User Content partition. XVCs are stored here.</td>
+</tr>
+<tr>
+<td>System Update</td>
+<td>R:\</td>
+<td>Direct access to the HDD System Update partition. Boot slots and SystemOS XVDs.</td>
+</tr>
+<tr>
+<td>System Support</td>
+<td>G:\(?)</td>
+<td>Direct access to the HDD System Support partition. Containing SystemOS's settings, temp, etc.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system">System</h2>
+<p>The System OS is built to provide the main visual and interactive layer
+of the console. This operating system is currently based on Windows
+'OneCoreUAP' with a custom shell, services and other components.</p>
+<h3 id="sra-virtual-drives">SRA Virtual Drives</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Mount Point</th>
+<th>Dev-Only</th>
+<th>Read-Only</th>
+<th>Desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>system.xvd</td>
+<td>C:\</td>
+<td>false</td>
+<td>true</td>
+<td>System Boot.</td>
+</tr>
+<tr>
+<td>systemaux.xvd</td>
+<td>X:\</td>
+<td>false</td>
+<td>true</td>
+<td>Inbox apps.</td>
+</tr>
+<tr>
+<td>systemauxf.xvd</td>
+<td>Y:\</td>
+<td>false</td>
+<td>true</td>
+<td>Inbox apps.</td>
+</tr>
+<tr>
+<td>$sosrst.xvd</td>
+<td>T:\</td>
+<td>false</td>
+<td>true</td>
+<td>Temporary storage.</td>
+</tr>
+<tr>
+<td>systemtools.xvd</td>
+<td>J:\</td>
+<td>true</td>
+<td>true</td>
+<td>Developer utilities.</td>
+</tr>
+<tr>
+<td>settings-saved.xvd</td>
+<td>S:\</td>
+<td>false</td>
+<td>false</td>
+<td>Console settings data. (Licenses, prefetch, registry and more)</td>
+</tr>
+<tr>
+<td>systemmisc.xvd</td>
+<td>M:\</td>
+<td>false</td>
+<td>true</td>
+<td>Miscellaneous system boot files.</td>
+</tr>
+<tr>
+<td>user.xvd</td>
+<td>U:\</td>
+<td>false</td>
+<td>false</td>
+<td>User and application data.</td>
+</tr>
+<tr>
+<td>user-devkit.xvd</td>
+<td>U:\</td>
+<td>true</td>
+<td>false</td>
+<td>User and application data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gameera">Game/Era</h2>
+<p>The Game operating system is used exclusively for games that target the
+XDK due to the higher allocation of console resources. It is built upon
+the same variant of Windows 8 LNM as the Host OS but is essentially
+smaller and more efficient.</p>
+<h3 id="era-virtual-drives">ERA Virtual Drives</h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Mount Point</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ERA.xvd</td>
+<td>C:\</td>
+<td>GameOS's Windows installation. Packaged with games via the XVC's user data. Attempts to read from this partition will result in the hypervisor terminating the ERA VM.</td>
+</tr>
+<tr>
+<td>Game.XVC</td>
+<td>G:\</td>
+<td>Running game's binaries/data. The XVC mounted and decrypted.</td>
+</tr>
+<tr>
+<td>ERATools.xvd</td>
+<td>J:\</td>
+<td>(MS Internal (and ERA Test?) Devkits with XDK recoveries only). Contains tools like ipconfig, telnetd, debug support dlls and dlls needed to connect to the XDK via the XB CLI tools.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gamecore">GameCore</h2>
+<p>A new operating system that currently appears to be the new foundation
+for games developed on Windows 10 devices. Based on a 'headless' Windows
+Core OS (WCOS).</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
