@@ -8,21 +8,16 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>File Explorer - Symbolic links vulnerability - Xbox One Research Wiki</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <title>Savegames - Xbox One Research Wiki</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
-    <script src="../js/jquery-1.10.2.min.js" defer></script>
-    <script src="../js/bootstrap-3.3.7.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> 
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
@@ -39,7 +34,7 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href="../Home/" class="nav-link">Home</a>
+                                <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
                                 <a href="../faq/" class="nav-link">FAQ</a>
@@ -70,21 +65,9 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#file-explorer-symbolic-links-vulnerability" class="nav-link">File Explorer - Symbolic links vulnerability</a>
+            <li class="nav-item" data-level="1"><a href="#savegames" class="nav-link">Savegames</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#metadata" class="nav-link">Metadata</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#info" class="nav-link">Info</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#instructions" class="nav-link">Instructions</a>
+            <li class="nav-item" data-level="2"><a href="#file-format" class="nav-link">File format</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -95,67 +78,270 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="file-explorer-symbolic-links-vulnerability">File Explorer - Symbolic links vulnerability</h1>
-<h2 id="metadata">Metadata</h2>
+<h1 id="savegames">Savegames</h1>
+<h2 id="file-format">File format</h2>
+<h3 id="blob_type">BLOB_TYPE</h3>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>Enum</th>
+<th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Release date</td>
-<td>02.06.2017</td>
+<td>Binary</td>
+<td>0x1</td>
 </tr>
 <tr>
-<td>Author</td>
-<td>xenomega</td>
+<td>Json</td>
+<td>0x2</td>
 </tr>
 <tr>
-<td>Classification</td>
-<td>File Access</td>
-</tr>
-<tr>
-<td>Patched</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>Patch date</td>
-<td>05.05.2017</td>
-</tr>
-<tr>
-<td>First patched system version</td>
-<td>10.0.15063.2022 (RS2_RELEASE_XBOX_1704.170501-1052)</td>
-</tr>
-<tr>
-<td>Source</td>
-<td>https://github.com/Xenomega/xsymlink</td>
-</tr>
-<tr>
-<td>Download</td>
-<td><a href="../files/xsymlink.zip">Download</a></td>
+<td>Config</td>
+<td>0x3</td>
 </tr>
 </tbody>
 </table>
-<h2 id="info">Info</h2>
-<p>Access restricted/encrypted volumes using the Xbox File Explorer.</p>
-<ul>
-<li>Patched as of 5/5/2017: 10.0.15063.2022 (RS2_RELEASE_XBOX_1704.170501-1052).  Thus in accordance with responsible disclosure.</li>
-<li>The Xbox One File Explorer does not check if a path is a symbolic link elsewhere, allowing an attacker to browse/read/write to mounted volumes which are normally restricted.</li>
-<li>This includes any encrypted virtual harddisk partitions (XVD files) which the console mounts for content such as gamesaves, etc.</li>
-</ul>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li>Download Windows Server 2003 Resource Kit Tools, from which you'll need the "linkd" utility, as the program relies on it to create links, since mklink does not link to paths that do not exists, and the paths we intend to link to are likely non-existent on your computer.</li>
-</ul>
-<h2 id="instructions">Instructions</h2>
-<ul>
-<li>Change the drive letter to your USB drive letter in Program.cs  </li>
-<li>Run it  </li>
-<li>Plug it into Xbox, use File Browser to browse through the symlinks, which will link to other parts of the system.  </li>
-</ul></div>
+<h3 id="savegame_type">SAVEGAME_TYPE</h3>
+<table>
+<thead>
+<tr>
+<th>Enum</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>0x1</td>
+</tr>
+<tr>
+<td>Machine</td>
+<td>0x5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="container_index_file">CONTAINER_INDEX_FILE</h3>
+<p>Structure of <em>containers.index</em> file.</p>
+<table>
+<thead>
+<tr>
+<th>Offset</th>
+<th>Length</th>
+<th>Type</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Type</td>
+</tr>
+<tr>
+<td>0x08</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>FileCount</td>
+</tr>
+<tr>
+<td>0x0C</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>NameLength</td>
+</tr>
+<tr>
+<td>0x10</td>
+<td><em>var</em></td>
+<td>WCHAR[NameLength]</td>
+<td>Name</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>AumIdLength</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td><em>var</em></td>
+<td>WCHAR[AumIdLength]</td>
+<td>AumId</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x08</td>
+<td>FILETIME</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Unknown (seen 0, 1, 3 so far)</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>IdLength</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td><em>var</em></td>
+<td>WCHAR[IdLength]</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>AumIdLength</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td><em>var</em></td>
+<td>CONTAINER_INDEX_FILE[FileCount]</td>
+<td>Files</td>
+</tr>
+</tbody>
+</table>
+<h3 id="container_index_entry">CONTAINER_INDEX_ENTRY</h3>
+<table>
+<thead>
+<tr>
+<th>Offset</th>
+<th>Length</th>
+<th>Type</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>FilenameLength</td>
+</tr>
+<tr>
+<td>0x04</td>
+<td><em>var</em></td>
+<td>WCHAR[FilenameLength]</td>
+<td>Filename</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>FilenameAltLength</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td><em>var</em></td>
+<td>WCHAR[FilenameAltLength]</td>
+<td>FilenameAlt</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>TextLength</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td><em>var</em></td>
+<td>WCHAR[TextLength]</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x01</td>
+<td>byte</td>
+<td>BlobNumber</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>SaveType</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x10</td>
+<td>byte[]</td>
+<td>FolderGuid</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x08</td>
+<td>FILETIME</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x08</td>
+<td>uint64</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>FileSize</td>
+</tr>
+<tr>
+<td><em>var</em></td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+<h3 id="container_blob">CONTAINER_BLOB</h3>
+<table>
+<thead>
+<tr>
+<th>Offset</th>
+<th>Length</th>
+<th>Type</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x04</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x08</td>
+<td>0x08</td>
+<td>WCHAR[]</td>
+<td>Magic (Blob)</td>
+</tr>
+<tr>
+<td>0x10</td>
+<td>0x88</td>
+<td>byte[]</td>
+<td>Data</td>
+</tr>
+<tr>
+<td>0x98</td>
+<td>0x10</td>
+<td>byte[]</td>
+<td>GUID</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 

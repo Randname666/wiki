@@ -8,21 +8,16 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Home - Xbox One Research Wiki</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <title>File Explorer - Symbolic links vulnerability - Xbox One Research Wiki</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
-    <script src="../js/jquery-1.10.2.min.js" defer></script>
-    <script src="../js/bootstrap-3.3.7.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> 
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
@@ -38,8 +33,8 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Home</a>
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
                                 <a href="../faq/" class="nav-link">FAQ</a>
@@ -52,16 +47,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../faq/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -80,13 +65,21 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#welcome" class="nav-link">Welcome</a>
+            <li class="nav-item" data-level="1"><a href="#file-explorer-symbolic-links-vulnerability" class="nav-link">File Explorer - Symbolic links vulnerability</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting started</a>
+            <li class="nav-item" data-level="2"><a href="#metadata" class="nav-link">Metadata</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#important" class="nav-link">Important</a>
+            <li class="nav-item" data-level="2"><a href="#info" class="nav-link">Info</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#instructions" class="nav-link">Instructions</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -97,64 +90,67 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<!-- TITLE: Home -->
-
-<!-- SUBTITLE: Welcome to this wiki! -->
-
-<h1 id="welcome">Welcome</h1>
-<p>Welcome to the Xbox One Research wiki!</p>
-<p>This is a place where information about the Xbox One console can be
-shared. Things are currently slow but will be adding when we can.</p>
-<p>See <a href="faq">FAQ</a> for frequently asked questions.</p>
-<h2 id="getting-started">Getting started</h2>
-<h3 id="general">General</h3>
+<h1 id="file-explorer-symbolic-links-vulnerability">File Explorer - Symbolic links vulnerability</h1>
+<h2 id="metadata">Metadata</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Release date</td>
+<td>02.06.2017</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>xenomega</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>File Access</td>
+</tr>
+<tr>
+<td>Patched</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Patch date</td>
+<td>05.05.2017</td>
+</tr>
+<tr>
+<td>First patched system version</td>
+<td>10.0.15063.2022 (RS2_RELEASE_XBOX_1704.170501-1052)</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>https://github.com/Xenomega/xsymlink</td>
+</tr>
+<tr>
+<td>Download</td>
+<td><a href="../files/xsymlink.zip">Download</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="info">Info</h2>
+<p>Access restricted/encrypted volumes using the Xbox File Explorer.</p>
 <ul>
-<li><a href="exploits">Exploits</a></li>
+<li>Patched as of 5/5/2017: 10.0.15063.2022 (RS2_RELEASE_XBOX_1704.170501-1052).  Thus in accordance with responsible disclosure.</li>
+<li>The Xbox One File Explorer does not check if a path is a symbolic link elsewhere, allowing an attacker to browse/read/write to mounted volumes which are normally restricted.</li>
+<li>This includes any encrypted virtual harddisk partitions (XVD files) which the console mounts for content such as gamesaves, etc.</li>
 </ul>
-<h3 id="hardware">Hardware</h3>
+<h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li><a href="console-revisions">Console revisions</a></li>
-<li><a href="cpu">CPU</a></li>
-<li><a href="southbridge">Southbridge</a></li>
-<li><a href="eMMC---Flash">eMMC / Flash</a></li>
-<li><a href="wifi">Wifi</a></li>
-<li><a href="ethernet">Ethernet</a></li>
-<li><a href="optical-disc-drive">Optical Disc Drive</a></li>
-<li><a href="rf-unit">RF unit</a></li>
+<li>Download Windows Server 2003 Resource Kit Tools, from which you'll need the "linkd" utility, as the program relies on it to create links, since mklink does not link to paths that do not exists, and the paths we intend to link to are likely non-existent on your computer.</li>
 </ul>
-<h3 id="software">Software</h3>
+<h2 id="instructions">Instructions</h2>
 <ul>
-<li><a href="telemetry">Telemetry</a></li>
-<li><a href="bootloaders">Bootloaders</a></li>
-<li><a href="xbox-operating-system">Xbox Operating System</a></li>
-<li><a href="harddrive">Hard drive</a></li>
-<li><a href="xbox-boot-file-system">Flash (XBFS)</a></li>
-<li><a href="security-processor">Security Processor</a></li>
-<li><a href="certificates">Certificates</a></li>
-<li><a href="xbox-game-disc">Xbox Game Disc</a></li>
-<li><a href="special-ntfs-usb-files">Special NTFS USB files</a></li>
-<li><a href="bootanimation">Bootanimation</a></li>
-<li><a href="xbox-ui">Xbox UI</a></li>
-<li><a href="xcrdutil">XCRDUtil</a></li>
-</ul>
-<h3 id="file-formats">File formats</h3>
-<ul>
-<li><a href="xbox-virtual-drive">Xbox Virtual Drives (XVD)</a></li>
-<li><a href="xvi">XVI</a></li>
-<li><a href="xct">XCT</a></li>
-<li><a href="vbi">VBI</a></li>
-<li><a href="savegames">Savegames</a></li>
-</ul>
-<h3 id="dev-mode">Dev Mode</h3>
-<ul>
-<li><a href="devkit-types">Devkit types</a></li>
-<li><a href="setup-dev-mode">Setting up your console</a></li>
-<li><a href="installing-compatible-software">Installing Compatible Software</a></li>
-</ul>
-<h2 id="important">Important</h2>
-<p>We do our best to ensure that we are respectful towards the research
-conducted on the Xbox One. However, if there is any issues we are open
-for discussion and will work with Microsoft accordingly.</p></div>
+<li>Change the drive letter to your USB drive letter in Program.cs  </li>
+<li>Run it  </li>
+<li>Plug it into Xbox, use File Browser to browse through the symlinks, which will link to other parts of the system.  </li>
+</ul></div>
             </div>
         </div>
 

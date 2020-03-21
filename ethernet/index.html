@@ -8,21 +8,16 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>CPU - Xbox One Research Wiki</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <title>Ethernet - Xbox One Research Wiki</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
-    <script src="../js/jquery-1.10.2.min.js" defer></script>
-    <script src="../js/bootstrap-3.3.7.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> 
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
@@ -39,7 +34,7 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href="../Home/" class="nav-link">Home</a>
+                                <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
                                 <a href="../faq/" class="nav-link">FAQ</a>
@@ -70,17 +65,9 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#cpu" class="nav-link">CPU</a>
+            <li class="nav-item" data-level="1"><a href="#ethernet" class="nav-link">Ethernet</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#models" class="nav-link">Models</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#diagrams" class="nav-link">Diagrams</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#references" class="nav-link">References</a>
+            <li class="nav-item" data-level="2"><a href="#chipsets" class="nav-link">Chipsets</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -91,19 +78,12 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="cpu">CPU</h1>
-<p>An <strong>AMD Jaguar</strong> APU is used on all Xbox One consoles. It features an embedded Radeon GPU.</p>
-<h2 id="models">Models</h2>
+<h1 id="ethernet">Ethernet</h1>
+<p>All console revision utilize a gigabit ethernet connection.</p>
+<h2 id="chipsets">Chipsets</h2>
 <ul>
-<li>AMD "Jaguar" 8-core APU X887732-001 DG3001FEG84HR (Xbox One)</li>
-<li>AMD "Jaguar" 8-Core APU (CPU clock: 1,75 GHz, GPU clock: 914 MHz) X949211-001 DG4001FYG87IA (Xbox One S)</li>
-<li>AMD "Jaguar" 8-Core APU (CPU clock: 2.3 GHz, GPU block: 1.17 GHz) X950118-002 DG5700GDA87IE (Xbox One X)</li>
-</ul>
-<h2 id="diagrams">Diagrams</h2>
-<p><img alt="Durango Southbridge SoC schema" src="../files/durango_southbridge_soc.gif" /></p>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://www.computer.org">Southbridge / SoC diagram</a> by IEEE Computer Society</li>
+<li>Realtek RTL 8151GNM Ethernet Controller (Xbox One)</li>
+<li>Realtek RTL8111HM (Xbox One S)</li>
 </ul></div>
             </div>
         </div>

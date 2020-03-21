@@ -8,21 +8,16 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Southbridge - Xbox One Research Wiki</title>
-    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <title>XCT - Xbox One Research Wiki</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
-    <script src="../js/jquery-1.10.2.min.js" defer></script>
-    <script src="../js/bootstrap-3.3.7.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> 
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
@@ -39,7 +34,7 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href="../Home/" class="nav-link">Home</a>
+                                <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
                                 <a href="../faq/" class="nav-link">FAQ</a>
@@ -70,17 +65,9 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#southbridge" class="nav-link">Southbridge</a>
+            <li class="nav-item" data-level="1"><a href="#xct" class="nav-link">XCT</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#models" class="nav-link">Models</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#diagrams" class="nav-link">Diagrams</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#references" class="nav-link">References</a>
+            <li class="nav-item" data-level="2"><a href="#file-format" class="nav-link">File format</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -91,19 +78,105 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="southbridge">Southbridge</h1>
-<p>The custom southbridge is only slightly changed between the console revision, judging from its part number.</p>
-<h2 id="models">Models</h2>
-<ul>
-<li>X861949-005 T6WD5XBG-0003 (Xbox One/Xbox One S)</li>
-<li>X861949-007 T6WD5XBG-0003 (Xbox One X)</li>
-</ul>
-<h2 id="diagrams">Diagrams</h2>
-<p><img alt="Durango Southbridge SoC schema" src="../files/durango_southbridge_soc.gif" /></p>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://www.computer.org">Southbridge / SoC diagram</a> by IEEE Computer Society</li>
-</ul></div>
+<h1 id="xct">XCT</h1>
+<p>Unknown usecase, related to <a href="xbox-virtual-disk">XVD files</a>.</p>
+<h2 id="file-format">File format</h2>
+<table>
+<thead>
+<tr>
+<th>Offset</th>
+<th>Length</th>
+<th>Type</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>0x10</td>
+<td>byte[]</td>
+<td>ContentId</td>
+</tr>
+<tr>
+<td>0x10</td>
+<td>0x04</td>
+<td>byte[]</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x14</td>
+<td>0x02</td>
+<td>ushort</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x16</td>
+<td>0x02</td>
+<td>ushort</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x18</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x1C</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x20</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x24</td>
+<td>0x04</td>
+<td>uint32</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x28</td>
+<td>0x04</td>
+<td>byte[]</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x2C</td>
+<td>0x02</td>
+<td>ushort</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x2E</td>
+<td>0x02</td>
+<td>ushort</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x30</td>
+<td>0x08</td>
+<td>uint64</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x38</td>
+<td>0x40</td>
+<td>byte[]</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>0x78</td>
+<td>0x08</td>
+<td>uint64</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 
