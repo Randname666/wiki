@@ -93,7 +93,7 @@
 <h1 id="emmc-flash">eMMC / Flash</h1>
 <p>The flash chip is accessed via an eMMC controller.</p>
 <h2 id="filesystem">Filesystem</h2>
-<p>See <a href="xbox-boot-file-system">XBFS</a>.</p>
+<p>See <a href="../xbox-boot-file-system">XBFS</a>.</p>
 <h2 id="flash-chips">Flash chips</h2>
 <ul>
 <li>SK Hynix H26M42003GMR 8GB eMMC NAND Flash (Xbox One)</li>
@@ -117,7 +117,7 @@ For the other connections use 28 AWG.</p>
 <p>Enable SMC_RESET (<strong>VERY IMPORTANT TO DO THIS FIRST!!</strong>)
 Place a <strong>200-300 Ohm</strong> resistor between <strong>J4E1.1</strong> and <strong>TP4E1</strong></p>
 <p><a href="../emmc-flash/3_durango_read_nand_smcreset.png">Enabling SMC_RESET</a></p>
-<p>Disconnect the SMC clock from the <a href="/southbridge">Southbridge</a> by removing <strong>R4D2</strong>.
+<p>Disconnect the SMC clock from the <a href="../southbridge">Southbridge</a> by removing <strong>R4D2</strong>.
 Save the resistor as it is needed for the Xbox One to function. If you do lose it then a solder bridge should work as the value is 0 Ohms.</p>
 <p><a href="../emmc-flash/4_durango_read_nand_r4d2.png">Disconnecting SMC clock</a></p>
 <p>NAND logic runs on the 1.8v rail and readers try to use 3.3v which is most of them don't work with the Xbox One NAND.</p>
